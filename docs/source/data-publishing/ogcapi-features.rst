@@ -538,6 +538,8 @@ PostgreSQL
 
 Must have PostGIS installed.
 
+* When the CRS of the table is not EPSG:4326, the `storage_crs` option must be used containing the CRS URL.
+
 .. code-block:: yaml
 
    providers:
@@ -550,6 +552,7 @@ Must have PostGIS installed.
              user: postgres
              password: postgres
              search_path: [osm, public]
+             storage_crs: http://www.opengis.net/def/crs/EPSG/0/28992 # use when table CRS is not EPSG:4326
          id_field: osm_id
          table: hotosm_bdi_waterways
          geom_field: foo_geom
